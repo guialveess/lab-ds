@@ -1,8 +1,9 @@
+import React from 'react';
 import './styles/global.css';
-import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Dot, Line, LineChart } from "recharts"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, } from "@/components/ui/chart"
+import { TrendingUp } from "lucide-react";
+import { CartesianGrid, Dot, Line, LineChart } from "recharts";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
@@ -10,12 +11,12 @@ const chartData = [
   { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
   { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
   { browser: "other", visitors: 90, fill: "var(--color-other)" },
-]
+];
 
 const chartConfig = {
   visitors: {
     label: "Visitors",
-    color: "hsl(var(--chart-5))",
+    color: "hsl(var(--chart-3))",
   },
   chrome: {
     label: "Chrome",
@@ -37,17 +38,16 @@ const chartConfig = {
     label: "Other",
     color: "hsl(var(--chart-5))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
-
-export function Grafico() {
+const Grafico = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <Card className="max-w-md w-full bg-slate-800">
         <CardHeader>
           <CardTitle className='text-slate-200'>Line Chart - Dots Colors</CardTitle>
           <CardDescription className='text-slate-200'>January - June 2024</CardDescription>
-        </CardHeader >
+        </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <ChartContainer config={chartConfig}>
@@ -87,7 +87,7 @@ export function Grafico() {
                         fill={payload.fill}
                         stroke={payload.fill}
                       />
-                    )
+                    );
                   }}
                 />
               </LineChart>
@@ -105,4 +105,6 @@ export function Grafico() {
       </Card>
     </div>
   );
-}
+};
+
+export default Grafico;
